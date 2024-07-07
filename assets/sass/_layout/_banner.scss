@@ -1,0 +1,246 @@
+/*Banner Section*/
+.custom-container {
+	padding: 0 15px;
+	max-width: 1780px;
+	margin: 0 auto;
+	@include breakpoint(md) {
+		padding: 0 30px;
+	}
+}
+.banner-section {
+	padding: 130px 0;
+	@include breakpoint(sm) {
+		padding: 170px 0 160px;
+	}
+	@include breakpoint(lg) {
+		padding: 200px 0;
+	}
+	@media screen and (min-width:1531px) {
+		padding: 265px 0 205px;
+	}
+}
+.banner-overlay {
+	position: relative;
+	overflow: hidden;
+	.custom-container {
+		position: relative;
+		z-index: 1;
+	}
+	&::before {
+		@extend %pa;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		right: 0;
+		background: rgba($color:$title-color, $alpha:.93);
+	}
+}
+.banner-content {
+	max-width: 660px;
+	position: relative;
+	z-index: 9;
+	.subtitle {
+		font-size: 30px;
+		line-height: 42px;
+		text-transform: uppercase;
+		color: $theme-color;
+		letter-spacing: 3px;
+		margin-bottom: 7px;
+	}
+	.title {
+		font-size: 60px;
+		line-height: 70px;
+		text-transform: uppercase;
+		margin-bottom: 35px;
+	}
+	p {
+		margin-bottom: 40px;
+	}
+	.banner-button-area {
+		margin: -5px;
+		a {
+			margin: 5px;
+		}
+	}
+	@include breakpoint(sm) {
+		p {
+			font-size: 18px;
+			line-height: 1.7;
+		}
+		.banner-button-area {
+			margin: -8px;
+			a {
+				margin: 8px;
+			}
+		}
+	}
+	@include breakpoint(max-xl) {
+		max-width: 640px;
+		// .subtitle {
+		// 	font-size: 36px;
+		// 	line-height: 44px;
+		// }
+		// .title {
+		// 	font-size: 70px;
+		// 	line-height: 80px;
+		// }
+	}
+	@include breakpoint(max-lg) {
+		max-width: 100%;
+	}
+	@include breakpoint(max-md) {
+		.subtitle {
+			font-size: 22px;
+			line-height: 34px;
+		}
+		.title {
+			font-size: 46px;
+			line-height: 55px;
+			margin-bottom: 25px;
+		}
+		p {
+			margin-bottom: 30px;
+		}
+	}
+	@include breakpoint(max-sm) {
+		.subtitle {
+			font-size: 20px;
+			line-height: 30px;
+			letter-spacing: 0;
+		}
+		.title {
+			font-size: 42px;
+			line-height: 55px;
+		}
+	}
+	&.cl-white {
+		.title {
+			color: $white-color;
+		}
+		p {
+			color: rgba($color:$white-color, $alpha:.86);
+		}
+	}
+}
+.banner-thumb {
+	position: absolute;
+	bottom: 0;
+	left: calc(50% + 90px);
+	img {
+		position: relative;
+	}
+	.rounded-shape {
+		@extend %pa;
+		border-radius: 50%;
+		background: rgba($color:$white-color, $alpha:.08);
+		@include transform(translate(-50%, -50%));
+		left: 50%;
+		top: 50%;
+		animation: joom_in_out 3s alternate infinite;
+		-webkit-animation: joom_in_out 3s alternate infinite;
+		-moz-animation: joom_in_out 3s alternate infinite;
+		&.shape-1 {
+			width: 809px;
+			height: 809px;
+		}
+		&.shape-2 {
+			width: 700px;
+			height: 700px;
+			animation-delay: 1s;
+			-webkit-animation-delay: 1s;
+			-moz-animation-delay: 1s;
+		}
+		&.shape-3 {
+			width: 591px;
+			height: 591px;
+			animation-delay: 2s;
+			-webkit-animation-delay: 2s;
+			-moz-animation-delay: 2s;
+		}
+	}
+	@media screen and (max-width:1530px) {
+		left: calc(50% + 140px);
+		img {
+			max-width: 700px;
+		}
+		.rounded-shape {
+			&.shape-1 {
+				width: 600px;
+				height: 600px;
+			}
+			&.shape-2 {
+				width: 500px;
+				height: 500px;
+			}
+			&.shape-3 {
+				width: 400px;
+				height: 400px;
+			}
+		}
+	}
+	// @media screen and (max-width:1360px) {
+	// 	left: calc(50% + 230px);
+	// 	img {
+	// 		max-width: 650px;
+	// 	}
+	// }
+	@include breakpoint(max-xl) {
+		left: calc(50% + 140px);	
+		img {
+			max-width: 650px;
+		}
+	}
+	@include breakpoint(max-lg) {
+		display: none;
+	}
+}
+@keyframes joom_in_out {
+	0% {
+		@include transform(translate(-50%, -50%) scale(.8));
+	}
+	100% {
+		@include transform(translate(-50%, -50%) scale(1));
+	}
+}
+.banner-section-2 {
+	position: relative;
+	padding: 100px 0 110px;
+	@include breakpoint(sm) {
+		padding: 140px 0;
+	}
+	@include breakpoint(lg) {
+		padding: 180px 0;
+	}
+	@media screen and (min-width:1200px) {
+		padding: 187px 0 245px;
+	}
+	@include breakpoint(max-xl) {
+		background: $section-bg;
+		.banner-content {
+			max-width: 860px;
+		}
+	}
+}
+.banner-shape-bg {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+	left: calc(50% + 69px);
+	@media screen and (max-width:1860px) {
+		left: calc(50% + 50px);
+	}
+	@media screen and (max-width:1600px) {
+		left: calc(50% + 88px);
+	}
+	@media screen and (max-width:1399px) {
+		left: calc(50% + 70px);
+	}
+}
+.banner-line-shape {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+	right: calc(50% - 650px);
+}

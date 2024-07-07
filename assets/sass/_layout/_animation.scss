@@ -1,0 +1,73 @@
+.loader {
+    @extend %flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $body-bg;
+    .inner {
+        position: relative;
+        width: 2.5em;
+        height: 2.5em;
+        transform: rotate(165deg);
+        &::after, &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 0.25em;
+            transform: translate(-50%, -50%);
+        }
+        &::before {
+            animation: loader-1 2s infinite;
+            -webkit-animation: loader-1 2s infinite;
+            -moz-animation: loader-1 2s infinite;
+        }
+        &::after {
+            animation: loader-2 2s infinite;
+            -webkit-animation: loader-2 2s infinite;
+            -moz-animation: loader-2 2s infinite;
+        }
+    }
+}
+@keyframes loader-1 {
+    0% {
+      width: 0.5em;
+      box-shadow: 1em -0.5em $theme-color, -1em 0.5em $theme-one;
+    }
+    35% {
+      width: 2.5em;
+      box-shadow: 0 -0.5em $theme-color, 0 0.5em $theme-one;
+    }
+    70% {
+      width: 0.5em;
+      box-shadow: -1em -0.5em $theme-color, 1em 0.5em $theme-one;
+    }
+    100% {
+      box-shadow: 1em -0.5em $theme-color, -1em 0.5em $theme-one;
+    }
+}
+@keyframes loader-2 {
+    0% {
+      height: 0.5em;
+      box-shadow: 0.5em 1em $theme-two, -0.5em -1em $theme-three;
+    }
+    35% {
+      height: 2.5em;
+      box-shadow: 0.5em 0 $theme-two, -0.5em 0 $theme-three;
+    }
+    70% {
+      height: 0.5em;
+      box-shadow: 0.5em -1em $theme-two, -0.5em 1em $theme-three;
+    }
+    100% {
+      box-shadow: 0.5em 1em $theme-two, -0.5em -1em $theme-three;
+    }
+}

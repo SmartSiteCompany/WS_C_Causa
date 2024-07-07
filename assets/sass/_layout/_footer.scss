@@ -1,0 +1,300 @@
+/*Footer Section*/
+footer {
+	position: relative;
+	&::before {
+		@extend %pa;
+		left: 0;
+		bottom: 0;
+		top: 0;
+		right: 0;
+		background: rgba($color:$title-color, $alpha:.95);
+	}
+	.container {
+		position: relative;
+		z-index: 2;
+	}
+}
+.footer-area {
+	@extend %flex;
+	justify-content: space-between;
+	margin: 0 -15px -45px;
+}
+.footer-top {
+	padding: 95px 0 56px;
+	border-bottom: 1px solid rgba($color:$white-color, $alpha:.23);
+}
+.footer-widget {
+	padding: 0 15px 45px;
+	width: 100%;
+	max-width: 280px;
+	.title {
+		text-transform: capitalize;
+		position: relative;
+		padding-bottom: 17px;
+		color: $white-color;
+		margin-bottom: 25px;
+		&::after {
+			position: absolute;
+			content: "";
+			width: 43px;
+			height: 4px;
+			background: $theme-color;
+			left: 0;
+			bottom: 0;
+		}
+	}
+	ul {
+		li {
+			@extend %flex;
+			padding: 0;
+			margin-bottom: 10px;
+			font-size: 18px;
+			color: #AAB1C6;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			a {
+				color: #AAB1C6;
+				&:hover {
+					color: $theme-color;
+				}
+			}
+			.icon {
+				width: 28px;
+				color: $theme-color;
+			}
+			.content {
+				width: calc(100% - 28px);
+			}
+		}
+	}
+	@include breakpoint(max-xl) {
+		&.widget-link {
+			max-width: 220px;
+		}
+	}
+	@include breakpoint(max-lg) {
+		max-width: 50%;
+		&.widget-link {
+			max-width: 50%;
+		}
+	}
+	@include breakpoint(max-sm) {
+		max-width: 275px;
+		&.widget-link {
+			max-width: 275px;
+		}
+	}
+}
+.footer-bottom {
+	border-bottom: 1px solid rgba($color:$white-color, $alpha:.23);
+	padding: 50px 0;
+	.title {
+		color: $white-color;
+		margin-bottom: 15px;
+	}
+	.thumb {
+		img {
+			max-width: 100%;
+		}
+	}
+	.footer-subscribe-form {
+		margin-bottom: 40px;
+	}
+	@include breakpoint(md) {
+		.footer-subscribe-form {
+			margin-bottom: 0;
+		}
+		.thumb {
+			text-align: right;
+		}
+	}
+}
+.footer-subscribe-form {
+	position: relative;
+	input {
+		height: 70px;
+		background: rgba($color:$white-color, $alpha:.051);
+		border: 1px solid rgba($color:$white-color, $alpha:.1);
+		color: $white-color;
+		@include border-radius(4px);
+		padding: 0 25px;
+		&::placeholder {
+			color: $white-color;
+		}
+	}
+	button {
+		height: 56px;
+		background: $theme-color;
+		color: $white-color;
+		border: none;
+		outline: none;
+		font-weight: 500;
+		text-transform: uppercase;
+		box-shadow: 0 5px 25px rgba($color:$theme-color, $alpha:.38);
+		padding: 0 30px;
+		@include border-radius(4px);
+		margin-top: 15px;
+	}
+	@media screen and (min-width:450px) {
+		button {
+			margin: 0;
+			position: absolute;
+			right: 8px;
+			top: 8px;
+		}
+	}
+}
+.copyright-area {
+	@extend %flex;
+	justify-content: space-between;
+	margin: 0 -15px;
+	padding: 25px 0 10px;
+	color: #AAB1C6;
+	p {
+		margin: 0 !important;
+	}
+	.left, .right {
+		padding: 0 15px 20px;
+		@include breakpoint(md) {
+			max-width: 50%;
+		}
+	}
+}
+.social-icons {
+	@extend %flex;
+	margin: -10px;
+	li {
+		padding: 10px;
+		a {
+			width: 35px;
+			height: 35px;
+			line-height: 35px;
+			text-align: center;
+			@include border-radius(50%);
+			background: rgba($color:$white-color, $alpha:.14);
+			color: $white-color;
+			&:hover, &.active {
+				background: $theme-color;
+				color: $white-color;
+				box-shadow: 0 5px 20px rgba($color:$theme-color, $alpha:.31);
+			}
+		}
+	}
+}
+.footer-support-item {
+	padding: 33px 25px;
+	@extend %flex;
+	align-items: center;
+	background: $white-color;
+	box-shadow: 0 0 30px rgba($color:#6EA8FF, $alpha:.16);
+	@include border-radius(6px);
+	margin: 0 auto 30px;
+	max-width: 400px;
+	.icon {
+		width: 75px;
+		height: 75px;
+		line-height: 75px;
+		@include border-radius(18px);
+		color: $theme-one;
+		background: rgba($color:$theme-one, $alpha:.12);
+		font-size: 36px;
+		text-align: center;
+		@include transition($transition);
+	}
+	.content {
+		width: calc(100% - 75px);
+		padding-left: 22px;
+		a {
+			color: $body-color;
+		}
+	}
+	.title {
+		text-transform: capitalize;
+		margin: 0;
+	}
+	@include breakpoint(sm) {
+		max-width: 100%;
+	}
+	&:hover {
+		.icon {
+			color: $white-color;
+			background: $theme-one;
+		}
+	}
+	@include breakpoint(md) {
+		@include breakpoint(max-xl) {
+			padding: 33px 20px;
+			.icon {
+				width: 60px;
+				height: 60px;
+				line-height: 60px;
+				@include border-radius(10px);
+				font-size: 24px;
+			}
+			.content {
+				padding-left: 15px;
+				width: calc(100% - 60px);
+				.title {
+					font-size: 22px;
+				}
+			}
+		}
+	}
+	@media screen and (max-width:380px) {
+		padding: 33px 20px;
+		.icon {
+			width: 60px;
+			height: 60px;
+			line-height: 60px;
+			@include border-radius(10px);
+			font-size: 24px;
+		}
+		.content {
+			padding-left: 15px;
+			width: calc(100% - 60px);
+			.title {
+				font-size: 22px;
+			}
+		}
+	}
+}
+div[class*="col"] {
+	&:nth-of-type(3n + 2) {
+		.footer-support-item {
+			.icon {
+				color: $theme-color;
+				background: rgba($color:$theme-color, $alpha:.12);
+			}
+			&:hover {
+				.icon {
+					color: $white-color;
+					background: $theme-color;
+				}
+			}
+		}
+	}
+	&:nth-of-type(3n + 3) {
+		.footer-support-item {
+			.icon {
+				color: $theme-two;
+				background: rgba($color:$theme-two, $alpha:.12);
+			}
+			&:hover {
+				.icon {
+					color: $white-color;
+					background: $theme-two;
+				}
+			}
+		}
+	}
+}
+.footer-support {
+	@include transform(translateY(-80px));
+	position: relative;
+	z-index: 1;
+	margin-bottom: -110px;
+}
+.mt-80 {
+	margin-top: 80px;
+}

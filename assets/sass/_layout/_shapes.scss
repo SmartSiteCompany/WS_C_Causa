@@ -1,0 +1,223 @@
+/*Shapes Positions*/
+.bg-shape-1 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+@include breakpoint(xl) {
+	.bg-shape-1 {
+		top: -190px;
+	}
+}
+.ball {
+    position: absolute;
+    display: block;
+    width: 174px;
+    height: 174px;
+    @include border-radius(50%);
+    background: rgba($color: $theme-one, $alpha:1);
+    animation: 3s light linear infinite;
+    &.ball-lg {
+        width: 314px;
+        height: 314px;
+    }
+    @include breakpoint(max-lg) {
+        display: none;
+    }
+    &.ball1 {
+        top: calc(100% - 174px);
+        right: calc(50% + 550px);
+    }
+    &.ball2 {
+        top: 116px;
+        left: calc(50% + 30px);
+	}
+	&.ball3, &.ball4, &.ball5 {
+		background: rgba($color:$white-color, $alpha:.8);
+	}
+	&.radius-anime {
+		animation: 6s radius_anime linear infinite;
+		background: rgba($color:$white-color, $alpha:.1);
+	}
+	&.ball3 {
+		width: 169px;
+		height: 169px;
+		top: 40px;
+		left: calc(50% + 600px);
+	}
+	&.ball-xl {
+		width: 506px;
+		height: 506px;
+	}
+	&.ball4 {
+		top: -60px;
+		left: -150px;
+	}
+	&.ball5 {
+		bottom: -150px;
+		left: -60px;
+	}
+}
+@keyframes light {
+    0% {
+        opacity: .3;
+    }
+    50% {
+        opacity: .05;
+    }
+    100% {
+        opacity: .3;
+    }
+}
+@keyframes radius_anime {
+	0% {
+		@include border-radius(50% 20% 30% 50%);
+	}
+	25% {
+		@include border-radius(20% 30% 20% 50%);
+	}
+	50% {
+		@include border-radius(40% 50% 30% 20%);
+	}
+	75% {
+		@include border-radius(20% 30% 50% 40%);
+	}
+	100% {
+		@include border-radius(50% 20% 30% 50%);
+	}
+}
+.line {
+    @extend %pa;
+    top: 120px;
+    left: 50%;
+    min-width: 1920px;
+	@include transform(translateX(-50%));
+	z-index: 1;
+    img {
+        width: 100%;
+	}
+	&.t-0 {
+		top: 0;
+	}
+}
+.circle1 {
+	position: absolute;
+	top: 70px;
+	animation: left_right 20s linear infinite;
+	-webkit-animation: left_right 20s linear infinite;
+	-moz-animation: left_right 20s linear infinite;
+}
+.circle2 {
+	position: absolute;
+	bottom: -70px;
+	animation: right_left 20s linear infinite;
+	-webkit-animation: right_left 20s linear infinite;
+	-moz-animation: right_left 20s linear infinite;
+}
+@keyframes left_right {
+	from {
+		left: 0;
+		@include transform(translateX(-100%));
+	}
+	to {
+		left: 100%;
+		@include transform(translateX(100%));
+	}
+}
+@keyframes right_left {
+	from {
+		right: 0;
+		@include transform(translateX(100%));
+	}
+	to {
+		right: 100%;
+		@include transform(translateX(-100%));
+	}
+}
+.triangle1-shape, .triangle2-shape, .water-shape, .rectangle1-shape, .rectangle2-shape, .target-shape, .water-shape {
+	@extend %pa;
+	@include breakpoint(max-md) {
+		display: none;
+	}
+}
+.triangle1-shape {
+	top: 650px;
+	left: 450px;
+}
+.triangle2-shape {
+	top: 20px;
+	left: 50px;
+}
+.triangle1-shape, .triangle2-shape {
+	animation: rotate 4s linear infinite;
+	-webkit-animation: rotate 4s linear infinite;
+	-moz-animation: rotate 4s linear infinite;
+}
+.target-shape {
+	bottom: 30px;
+	right: 30px;
+	@include breakpoint(max-xl) {
+		@include breakpoint(lg) {
+			bottom: 430px;
+		}
+	}
+}
+.rectangle1-shape {
+	bottom: 90px;
+	left: 780px;
+	animation: triangle_dance 5s alternate infinite;
+	-webkit-animation: triangle_dance 5s alternate infinite;
+	-moz-animation: triangle_dance 5s alternate infinite;
+	animation-delay: 2.5s;
+	-webkit-animation-delay: 2.5s;
+	-moz-animation-delay: 2.5s;
+}
+.rectangle2-shape {
+	top: 110px;
+	left: 780px;
+	animation: triangle_dance 5s alternate infinite;
+	-webkit-animation: triangle_dance 5s alternate infinite;
+	-moz-animation: triangle_dance 5s alternate infinite;
+}
+.water-shape {
+	left: -10px;
+	bottom: 30px;
+	animation: left_right_two 12s alternate infinite;
+	-webkit-animation: left_right_two 12s alternate infinite;
+	-moz-animation: left_right_two 12s alternate infinite;
+}
+@keyframes left_right_two {
+	0% {
+		@include transform(translateX(-100%));
+	}
+	50% {
+		@include transform(translateX(100%));
+	}
+	100% {
+		@include transform(translateX(-100%));
+	}
+}
+@keyframes triangle_dance {
+	0% {
+		@include transform(translate(70px, 70px)rotate(0deg));
+	}
+	50% {
+		@include transform(translate(70px, -70px)rotate(360deg));
+	}
+	100% {
+		@include transform(translate(-70px, -70px)rotate(0deg));
+	}
+}
+@keyframes rotate {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	50% {
+		@include transform(rotate(260deg));
+	}
+	100% {
+		@include transform(rotate(720deg));
+	}
+}

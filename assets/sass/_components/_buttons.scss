@@ -1,0 +1,196 @@
+.go-top {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    color: $white-color;
+    z-index: 999;
+    bottom: 30px;
+    right: 30px;
+    position: fixed;
+    border-radius: 5px;
+    @include transform(translateY(150px));
+    background: $theme-bg;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    @include transition($transition);
+    &.active {
+        @include transform(translateY(0));
+    }
+    img {
+        width: 100%;
+    }
+}
+.custom-button {
+    color: $white-color;
+    text-transform: uppercase;
+    line-height: 48px;
+    background: $theme-color;
+    padding: 0 35px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 25px;
+    border: 1px solid $theme-color;
+    i {
+        @include transition($transition);
+        display: inline-block;
+        &:last-child {
+            padding-left: 10px;
+        }
+        &:first-child {
+            padding-right: 10px;
+        }
+    }
+    &:hover {
+        color: $theme-color;
+    }
+    &.btn-sm {
+        padding: 0 18px;
+        font-size: 14px;
+        line-height: 45px;
+    }
+    &.theme-one {
+        border-color: $theme-one;
+        background: $theme-one;
+        box-shadow: 0 0 15px rgba($color:$theme-color, $alpha:.1);
+        &:hover {
+            color: $theme-one;
+        }
+    }
+    &.theme-two {
+        background: $theme-two;
+        &:hover {
+            color: $theme-two;
+        }
+    }
+    &.theme-three {
+        background: $theme-three;
+        &:hover {
+            color: $theme-three;
+        }
+    }
+    &.theme-four {
+        background: $theme-four;
+        &:hover {
+            color: $theme-four;
+        }
+    }
+    &.theme-five {
+        background: $theme-five;
+        &:hover {
+            color: $theme-five;
+        }
+    }
+    &.white {
+        background: $white-color;
+        color: $theme-color;
+        &:hover {
+            background: $theme-color;
+            color: $white-color;
+        }
+    }
+    &:hover {
+        background: transparent;
+    }
+    &.bg-white {
+        background: $white-color;
+        color: $title-color;
+        border-color: rgba($color: $title-color, $alpha: 0.2);
+        &:hover {
+            background: $theme-color !important;
+            border-color: $theme-color !important;
+            color: $white-color;
+        }
+    }
+    &.btn-md {
+        padding: 4px 24px;
+        border-radius: 35px;
+        @include breakpoint(max-sm) {
+            padding: 3px 24px;
+        }
+    }
+    &.btn-lg {
+        @include border-radius(32px);
+        @include breakpoint(md) {
+            padding: 7px 38px;
+            font-size: 20px;
+        }
+    }
+}
+.load-more {
+    .custom-button {
+        padding: 5px 30px;
+        border-radius: 30px;
+    }
+}
+.video-button {
+    width: 51px;
+    height: 51px;
+    line-height: 51px;
+    text-align: center;
+    @include border-radius(50%);
+    background: $theme-one;
+    position: relative;
+    color: $white-color;
+    font-size: 24px;
+    i {
+        position: relative;
+        z-index: 1;
+    }
+    &:hover {
+        color: $white-color;
+    }
+    &::after, &::before {
+        @extend %center;
+        animation: video 25s linear infinite;
+        -webkit-animation: video 25s linear infinite;
+        -moz-animation: video 25s linear infinite;
+        @include transition($transition);
+    }
+    &::before {
+        background: rgba($color: $theme-one, $alpha: 0.161);
+        width: 100px;
+        height: 100px;
+        animation-delay: .5s;
+        -webkit-animation-delay: .5s;
+        -moz-animation-delay: .5s;
+        @include border-radius(33.33% 50%);
+    }
+    &::after {
+        background: rgba($color: $theme-one, $alpha: 0.302);
+        height: 73px;
+        width: 73px;
+    }
+}
+@keyframes video {
+    0% {
+        @include border-radius(33.33% 50%);
+        @include transform(translate(-50%, -50%)rotate(0deg));
+    }
+    100% {
+        @include border-radius(50% 33.33%);
+        @include transform(translate(-50%, -50%)rotate(1800deg));
+    }
+}
+@-webkit-keyframes video {
+    0% {
+        @include border-radius(33.33% 50%);
+        @include transform(translate(-50%, -50%)rotate(0deg));
+    }
+    100% {
+        @include border-radius(50% 33.33%);
+        @include transform(translate(-50%, -50%)rotate(1800deg));
+    }
+}
+@-moz-keyframes video {
+    0% {
+        @include border-radius(33.33% 50%);
+        @include transform(translate(-50%, -50%)rotate(0deg));
+    }
+    100% {
+        @include border-radius(50% 33.33%);
+        @include transform(translate(-50%, -50%)rotate(1800deg));
+    }
+}
