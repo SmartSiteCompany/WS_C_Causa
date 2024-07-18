@@ -173,39 +173,7 @@
                     </div>
                 </div>
                 <div class="find-tutor-wrapper">
-                    <form id="contact-form" class="find-tutor-form row">
-                        <div class="col-md-6">
-                            <div class="apply-group mb-25">
-                                <label for="first_name" class="label-name">Nombre</label>
-                                <label for="first_name" class="label-icon"><i class="fas fa-user"></i></label>
-                                <input type="text" id="first_name" name="first_name" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="apply-group mb-25">
-                                <label for="email" class="label-name">Email</label>
-                                <label for="email" class="label-icon"><i class="fas fa-envelope"></i></label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="apply-group mb-25">
-                                <label for="subject" class="label-name">Asunto</label>
-                                <label for="subject" class="label-icon"><i class="fas fa-envelope"></i></label>
-                                <input type="text" id="subject" name="subject" required>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="apply-group mb-25">
-                                <textarea id="message" name="message" placeholder="Escribe tu mensaje" required></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="apply-group mb-0">
-                                <button type="submit" class="btn-sm bg-1 shadow-1">Enviar <i class="fas fa-angle-right"></i></button>
-                            </div>
-                        </div>
-                    </form>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd1bgEYLVuw7iUjtMR_vZn0VstLIOg_4Fvg0wVMzJQAFuF8Sw/viewform?embedded=true" width="100%" height="1158" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
             </div>
         </section>
@@ -277,30 +245,6 @@
     <script src="./assets/js/nice-select.js"></script>
     <script src="./assets/js/owl.min.js"></script>
     <script src="./assets/js/main.js"></script>
-    <script>
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            var formData = new FormData(this);
-
-            fetch('http://localhost:3000/contact', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Mensaje enviado con éxito');
-                } else {
-                    alert('Hubo un error al enviar el mensaje');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Hubo un error al enviar el mensaje');
-            });
-        });
-    </script>
 </body>
 
 </html>
